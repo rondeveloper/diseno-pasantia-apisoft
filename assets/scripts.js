@@ -66,5 +66,24 @@ $("." + thumbImg + " li:last-child").addClass("last");
     }, autoplaySpeed);
   
 });
-
-    
+let items = document.querySelectorAll('.carousel .carousel-item')
+items.forEach((el) => {
+    const minPerSlide = 4
+    let next = el.nextElementSibling
+    for (var i=1; i<minPerSlide; i++) {
+        if (!next) {
+        	next = items[0]
+      	}
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+})
+const go_up = document.querySelector('.go-up')
+window.addEventListener("scroll",()=>{
+  if(window.pageYOffset>300){
+    go_up.classList.add("active")
+  }else{
+    go_up.classList.remove("active")
+  }
+})
