@@ -332,3 +332,6 @@ html{
   opacity: 1;
   bottom: 30px;
 }
+.carousel-item {
+    position: initial !important;
+}
